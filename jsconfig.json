@@ -1,6 +1,14 @@
 {
-  "include": [
-    "./node_modules/cypress",
-    "cypress/**/*.js"
+  "json": {
+    "enabled": false,
+    "output": "jsonreport/test.json"
+   
+  },
+  "stepDefinitions" :[
+    "[filepath]/*.{js,ts}",
+    "[filepath].{js,ts}",
+    "cypress/e2e/smokeTestProfile/bookStoreAppProfile/*.{js,ts}"
   ]
+  
+  
 }
