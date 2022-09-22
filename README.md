@@ -1,5 +1,5 @@
 # TestBookStoreApplication
-This repository is created to do smoke test automation for the profile of the [BookStoreApplication] (https://demoqa.com/profile) which was part of technical assignment with [FranxB.V.](https://www.franx.com/nl-nl) using [cypress-cucumber-preprocessor] plugin (https://github.com/badeball/cypress-cucumber-preprocessor) integrated to [Cypress.io](https://www.cypress.io/) test automation framework. It is used to test check the basic functionality for smoke testing to verify the application is stable for further testing. To run the automated test in this repository, please clone it to your local environment and follow the following steps:
+This repository is created to do smoke test automation for the profile of the [BookStoreApplication](https://demoqa.com/profile) which was part of technical assignment with [FranxB.V.](https://www.franx.com/nl-nl) using [cypress-cucumber-preprocessor](https://github.com/badeball/cypress-cucumber-preprocessor) plugin  integrated to [Cypress.io](https://www.cypress.io/) test automation framework. It is used to test check the basic functionality for smoke testing to verify the application is stable for further testing. To run the automated test in this repository, please clone it to your local environment and follow the following steps:
 
 
 
