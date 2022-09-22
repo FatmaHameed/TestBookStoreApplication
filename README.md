@@ -21,4 +21,4 @@ For more information, please visit [Cypress Documentation](https://docs.cypress.
 
 
 
-Note: you can find the three other test scenarios in **moreThreeTestScenario** file inside the **moreTestScenarios** folder
+**Note:** you can find the three other test scenarios in **moreThreeTestScenario** file inside the **moreTestScenarios** folder
