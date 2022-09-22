@@ -25,7 +25,7 @@ module.exports = defineConfig({
     },
 
     baseUrl: 'https://demoqa.com',
-    specPattern: '**/*.feature',
+    specPattern: 'cypress/e2e/smokeTestProfile/*.feature',
     chromeWebSecurity: false,
     viewportWidth: 1200,
     viewportHeight: 800,
