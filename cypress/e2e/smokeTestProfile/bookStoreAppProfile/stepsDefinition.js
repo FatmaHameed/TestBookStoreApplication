@@ -83,7 +83,6 @@ Then('I should see this book in my profile', () => {
     .invoke('text')
     .then(($bookTitle) => {
       AddedBookTitle = $bookTitle;
-      // cy.get(':nth-child(6) > .element-list > .menu-list > #item-3').click();
       home.navigateToProfilePage();
       profile.selectBooksNumbersToBeDisplayed('10 rows', '10');
       profile.getBooksContainer().should('contain', `${AddedBookTitle}`);
