@@ -1,6 +1,7 @@
 import HomePage from '../../pages/homePage';
 import LoginPage from '../../pages/loginPage';
 import ProfilePage from '../../pages/profilePage';
+import BooksStorePage from '../../pages/booksStorePage';
 
 import {
   Given,
@@ -12,6 +13,7 @@ import {
 const home = new HomePage();
 const login = new LoginPage();
 const profile = new ProfilePage();
+const booksStore = new BooksStorePage();
 
 // Scenario 1: login with an existing user
 
@@ -51,20 +53,39 @@ When('I click on Go To Book Store button', () => {
 Then('I should see the list of books in the book store', () => {
   cy.contains('Git Pocket Guide').should('be.visible');
 
-  cy.get('.rt-tbody').then(($list) => {
+  profile.getBooksContainer().then(($list) => {
     expect($list.find('a').length).to.not.equal(0);
   });
 
   cy.verifyBooksTitlesAreVisible();
 });
 
-// Scenario 3: logout the user
+// Scenario 3: add books to my collection in the profile
 
-When('I click on logout button', () => {
-  profile.clickLogoutBtn();
-});
+When(
+  'I add a book for the books store to my collection not previously there',
+  () => {
+    cy.addNotNotExistBookToMyCollection();
+    booksStore
+      .getAddBookToYourCollectionBtn()
+      .contains('Add To Your Collection')
+      .should('be.visible')
+      .trigger('mouseover')
+      .click();
+  },
+);
 
-Then('I should be logged out the profile', () => {
-  profile.getProfileHeader().should('not.exist');
-  cy.url('/login');
+Then('I should see this book in my profile', () => {
+  let AddedBookTitle;
+
+  booksStore
+    .getBookTitleElement()
+    .invoke('text')
+    .then(($bookTitle) => {
+      AddedBookTitle = $bookTitle;
+      // cy.get(':nth-child(6) > .element-list > .menu-list > #item-3').click();
+      home.navigateToProfilePage();
+      profile.selectBooksNumbersToBeDisplayed('10 rows', '10');
+      profile.getBooksContainer().should('contain', `${AddedBookTitle}`);
+    });
 });

@@ -17,6 +17,13 @@ class ProfilePage {
     const logoutBtn = cy.get('#submit');
     logoutBtn.click();
   }
+  getBooksContainer() {
+    return cy.get('.rt-tbody');
+  }
+  selectBooksNumbersToBeDisplayed(text, BooksNo) {
+    const selectElement = cy.get('select');
+    selectElement.select(text).should('have.value', `${BooksNo}`);
+  }
 }
 
 export default ProfilePage;
